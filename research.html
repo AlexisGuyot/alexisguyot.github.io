@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recherche & Projets — Alexis Guyot</title>
+  <meta name="description" content="Axes de recherche d'Alexis Guyot : fondations formelles des langages de pipelines, robustesse de l'IA, analyse de données réelles massives. Projets de recherche interdisciplinaires et contributions libres." />
+  <meta name="author" content="Alexis Guyot" />
+  <meta property="og:title" content="Recherche & Projets — Alexis Guyot" />
+  <meta property="og:description" content="Axes de recherche d'Alexis Guyot : fondations formelles des langages de pipelines, robustesse de l'IA, analyse de données réelles massives. Projets de recherche interdisciplinaires et contributions libres." />
+  <meta property="og:type" content="profile" />
+
+  <!-- Anti-flash : applique le thème avant le premier rendu -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("ag-theme");
+        var dark = t ? t === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+        if (dark) document.documentElement.classList.add("dark");
+      } catch (e) {}
+    })();
+  </script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: { ink: "#0F1E38", night: "#0B1220", panel: "#111A2E", lagoon: "#0E7490", lagoonl: "#22D3EE" },
+          fontFamily: {
+            display: ['"Source Serif 4"', "Georgia", "serif"],
+            sans: ['"IBM Plex Sans"', "system-ui", "sans-serif"],
+            mono: ['"JetBrains Mono"', "monospace"],
+          },
+        },
+      },
+    };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/custom.css" />
+
+  <!-- SEO : Schema.org Person -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Alexis Guyot",
+    "jobTitle": "Maître de Conférences en Informatique (Section 27)",
+    "worksFor": [
+      { "@type": "CollegeOrUniversity", "name": "Aix-Marseille Université" },
+      { "@type": "Organization", "name": "Laboratoire d'Informatique et Systèmes (LIS), équipe IACD" }
+    ],
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "Université de Bourgogne" },
+    "email": "mailto:alexis.guyot@univ-amu.fr",
+    "url": "https://alexisguyot.github.io/",
+    "sameAs": [
+      "https://github.com/alexisguyot",
+      "https://cv.hal.science/alexis-guyot",
+      "https://dblp.org/pid/134/9903.html",
+      "https://orcid.org/0000-0001-5896-7693",
+      "https://www.linkedin.com/in/alexis-guyot-2104/"
+    ],
+    "knowsAbout": ["Pipelines", "AI", "Data lakes", "Lakehouses", "Category theory", "Type Theory", "Neurosymbolic", "Machine learning robustness", "Anomaly detection", "Open science"]
+  }
+  </script>
+</head>
+
+<body class="font-sans antialiased min-h-screen flex flex-col bg-slate-50 text-slate-700 dark:bg-night dark:text-slate-300">
+
+<!-- ===================== HEADER ===================== -->
+  <header class="sticky top-0 z-40 border-b border-slate-200 bg-white/85 backdrop-blur dark:border-slate-800 dark:bg-night/85">
+    <div class="relative mx-auto flex h-16 max-w-5xl items-center justify-between gap-4 px-4">
+      <a href="index.html" class="flex items-center gap-2.5" aria-label="Accueil — Alexis Guyot">
+        <!-- Glyphe « pipeline » (signature du site) -->
+        <svg width="44" height="30" viewBox="0 0 44 30" fill="none" aria-hidden="true">
+          <!-- A : arche + traverse -->
+          <path d="M4 25 L4 11 Q4 7 8 7 L14 7 Q18 7 18 11 L18 25" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" class="text-lagoon dark:text-lagoonl"/>
+          <path d="M4 18 L18 18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" class="text-lagoon dark:text-lagoonl"/>
+          <!-- G : boucle + ergot -->
+          <path d="M38 7 L28 7 Q24 7 24 11 L24 21 Q24 25 28 25 L36 25 Q40 25 40 21 L40 19 Q40 17 38 17 L33 17" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" class="text-ink dark:text-slate-300"/>
+          <!-- Nœuds : entrée et sortie du pipeline -->
+          <circle cx="4" cy="25" r="3" class="fill-ink dark:fill-slate-200"/>
+          <circle cx="33" cy="17" r="3" class="fill-lagoon dark:fill-lagoonl"/>
+        </svg>
+        <!-- <span class="font-display text-lg font-semibold text-ink dark:text-slate-100">Alexis Guyot</span> -->
+      </a>
+
+      <nav data-nav-menu class="absolute left-0 right-0 top-16 flex-col gap-1 border-b border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-night md:static md:flex-row md:items-center md:border-0 md:bg-transparent md:p-0 md:dark:bg-transparent" aria-label="Navigation principale">
+        <a href="index.html" class="nav-link" data-nav-link data-i18n="nav.home">Accueil</a>
+        <a href="research.html" class="nav-link" data-nav-link data-i18n="nav.research">Recherche</a>
+        <a href="teaching.html" class="nav-link" data-nav-link data-i18n="nav.teaching">Enseignement</a>
+        <a href="responsibilities.html" class="nav-link" data-nav-link data-i18n="nav.resp">Responsabilités</a>
+        <a href="contact.html" class="nav-link" data-nav-link data-i18n="nav.contact">Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-1.5">
+        <div class="flex items-center rounded-lg border border-slate-200 p-0.5 dark:border-slate-700">
+          <button type="button" class="lang-btn" data-lang-switch="fr">FR</button>
+          <button type="button" class="lang-btn" data-lang-switch="en">EN</button>
+        </div>
+        <button type="button" data-theme-toggle class="rounded-lg border border-slate-200 p-2 text-slate-500 transition hover:text-lagoon dark:border-slate-700 dark:text-slate-400 dark:hover:text-lagoonl" data-i18n-aria="nav.themeAria" aria-label="Basculer le thème clair / sombre">
+          <svg class="h-4 w-4 dark:hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+          <svg class="hidden h-4 w-4 dark:block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+        </button>
+        <button type="button" data-nav-toggle class="rounded-lg border border-slate-200 p-2 text-slate-500 dark:border-slate-700 dark:text-slate-400 md:hidden" data-i18n-aria="nav.menuAria" aria-label="Ouvrir le menu" aria-expanded="false">
+          <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-1 mx-auto w-full max-w-5xl px-4 py-12">
+    <p class="eyebrow reveal" data-i18n="res.eyebrow">Recherche</p>
+    <h1 class="reveal mt-2 font-display text-3xl md:text-4xl font-bold text-ink dark:text-slate-100" data-i18n-html="res.title">Vers des pipelines IA plus accessibles <br>, robustes et efficaces pour l'analyse des Big Data</h1>
+    <p class="reveal mt-3 leading-relaxed" data-i18n="res.intro">Deux axes complémentaires…</p>
+
+    <!-- Axes -->
+    <section class="mt-12" aria-labelledby="axes-title">
+      <h2 id="axes-title" class="reveal font-display text-2xl font-semibold text-ink dark:text-slate-100" data-i18n="res.axes.title">Axes de recherche</h2>
+      <div class="mt-5 grid gap-4 md:grid-cols-2">
+        <article class="card reveal">
+          <p class="eyebrow">Pipelines · Type Theory · Category Theory · DCAI</p>
+          <h3 class="mt-2 font-display text-lg font-semibold text-ink dark:text-slate-100" data-i18n="res.axis1.title">Axe Langage — Fondations formelles des pipelines</h3>
+          <p class="mt-2 text-sm leading-relaxed" data-i18n="res.axis1.text">L'objectif de ce premier axe est de résoudre les problèmes de robustesse et de performances inhérents aux pipelines dédiés à l'analyse des big data, qui transforment à de multiples reprises des données hétérogènes sur de multiples niveaux d'abstraction (valeurs, schémas, modèle, métadonnées), souvent au sein de systèmes reposant sur des architectures logicielles et techniques variables et évolutives. Je défends l'idée que la théorie des catégories et la théorie des types peuvent être combinées pour offrir des fondations théoriques et formelles solides aux langages utilisés pour construire ces pipelines, capables d'apporter des solutions fiables aux problèmes observés. Jusqu'à présent, une partie des mes travaux a permis de montrer que la théorie des types peut être exploitée pour prévenir dès la compilation diverses erreurs d'ingénierie des données dans un cadre multimodèle à l'aide de systèmes de types adaptés ; et que la théorie des catégories offre une syntaxe formelle adaptée à la fois à la définition de pipelines et d'architectures logicielles, ouvrant ainsi la voie à des vérifications formelles de la validité de pipelines au regard des exigences fonctionnelles et non-fonctionnelles du système qui les exécute.</p>
+          <div class="mt-3 flex flex-wrap gap-2">
+            <button type="button" class="tag-chip" data-tag="pipelines" data-filter-for="projects">#Pipelines</button>
+            <button type="button" class="tag-chip" data-tag="languages" data-filter-for="projects">#Languages</button>
+            <button type="button" class="tag-chip" data-tag="categorytheory" data-filter-for="projects">#CategoryTheory</button>
+            <button type="button" class="tag-chip" data-tag="typetheory" data-filter-for="projects">#TypeTheory</button>
+            <button type="button" class="tag-chip" data-tag="datamanagementsystems" data-filter-for="projects">#DataManagementSystems</button>
+            <button type="button" class="tag-chip" data-tag="bigdata" data-filter-for="projects">#BigData</button>
+            <button type="button" class="tag-chip" data-tag="schemaonread" data-filter-for="projects">#SchemaOnRead</button>
+            <button type="button" class="tag-chip" data-tag="multimodel" data-filter-for="projects">#MultiModel</button>
+            <button type="button" class="tag-chip" data-tag="datalakes" data-filter-for="projects">#DataLakes</button>
+            <button type="button" class="tag-chip" data-tag="lakehouses" data-filter-for="projects">#Lakehouses</button>
+          </div>
+        </article>
+        <article class="card reveal">
+          <p class="eyebrow">AI · Neurosymbolic · Uncertainty · XAI · DCAI</p>
+          <h3 class="mt-2 font-display text-lg font-semibold text-ink dark:text-slate-100" data-i18n="res.axis2.title">Axe Modèles — Meilleure gestion des données réelles</h3>
+          <p class="mt-2 text-sm leading-relaxed" data-i18n="res.axis2.text">L'objectif de ce second axe est d'alléger l'ingénierie des données nécessaire pour extraire de la valeur des big data en rendant les modèles d'IA utilisés dans les pipelines plus adaptés aux données réelles. J'étudie pour cela le rôle que peut jouer la connaissance humaine experte pour guider l'apprentissage et l'inférence au sein de modèles d'IA. Je m'intéresse également aux questions de quantification de l'incertitude, d'interprétabilité et d'explicabilité des prédictions faites, des leviers que je juge essentiels pour améliorer la confiance dans les décisions prises par ces modèles dans un cadre imparfait. Jusqu'à présent, mes travaux sur cet axe m'ont permis d'aborder différents facteurs de complexité des données réelles : volumes importants et structures hétérogènes et variables, problèmes inhérents aux donneés dites opportunistes / issues d'initiatives citoyennes (biais de représentativité, hétérogénéité sémantique, auto-corrélations multiples, sparsité, valeurs anormales / outliers), manque de contexte et qualité de langue médiocre dans des données textuelles, etc. ; et à explorer différents paradigmes comme le neurosymbolique, les prédictions conformes, le XAI ou le deep learning pour les surmonter.</p>
+          <div class="mt-3 flex flex-wrap gap-2">
+            <button type="button" class="tag-chip" data-tag="ai" data-filter-for="projects">#AI</button>
+            <button type="button" class="tag-chip" data-tag="dataquality" data-filter-for="projects">#DataQuality</button>
+            <button type="button" class="tag-chip" data-tag="deeplearning" data-filter-for="projects">#DeepLearning</button>
+            <button type="button" class="tag-chip" data-tag="neurosymbolic" data-filter-for="projects">#Neurosymbolic</button>
+            <button type="button" class="tag-chip" data-tag="uncertainty" data-filter-for="projects">#Uncertainty</button>
+            <button type="button" class="tag-chip" data-tag="conformalprediction" data-filter-for="projects">#ConformalPrediction</button>
+            <button type="button" class="tag-chip" data-tag="xai" data-filter-for="projects">#XAI</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Projets + logiciels : grille filtrable commune -->
+    <section class="mt-14" aria-labelledby="proj-title">
+      <h2 id="proj-title" class="reveal font-display text-2xl font-semibold text-ink dark:text-slate-100" data-i18n="res.projects.title">Projets de recherche</h2>
+      <div class="relative mt-5 grid gap-4 md:grid-cols-2" data-filter-grid="projects">
+        <article class="card reveal" data-tags="pfas,deepclustering,interpolation,conformalprediction,ontology,opendata,opportunisticdata,environnement">
+          <p class="eyebrow">ExposUM · MITI CNRS</p>
+          <h3 class="mt-2 font-display text-lg font-semibold text-ink dark:text-slate-100" data-i18n="res.proj1.title">Projet DAE-PFAS (2024-En cours)</h3>
+          <p class="mt-2 text-sm leading-relaxed" data-i18n-html="res.proj1.text">Détection d'anomalies environnementales liées aux PFAS…</p>
+          <div class="mt-3 flex flex-wrap gap-2">
+            <button type="button" class="tag-chip" data-tag="pfas" data-filter-for="projects">#PFAS</button>
+            <button type="button" class="tag-chip" data-tag="deepclustering" data-filter-for="projects">#DeepClustering</button>
+            <button type="button" class="tag-chip" data-tag="interpolation" data-filter-for="projects">#Interpolation</button>
+            <button type="button" class="tag-chip" data-tag="conformalprediction" data-filter-for="projects">#ConformalPrediction</button>
+            <button type="button" class="tag-chip" data-tag="ontology" data-filter-for="projects">#Ontology</button>
+            <button type="button" class="tag-chip" data-tag="opendata" data-filter-for="projects">#OpenData</button>
+            <button type="button" class="tag-chip" data-tag="opportunisticdata" data-filter-for="projects">#OpportunisticData</button>
+            <button type="button" class="tag-chip" data-tag="environnement" data-filter-for="projects">#Environnement</button>
+          </div>
+        </article>
+        <article class="card reveal" data-tags="socialnetworks,polarisation,graphs,datamining,humansciences,twitter">
+          <p class="eyebrow">ISITE-BFC</p>
+          <h3 class="mt-2 font-display text-lg font-semibold text-ink dark:text-slate-100" data-i18n="res.proj2.title">Projet Cocktail (2019-2023)</h3>
+          <p class="mt-2 text-sm leading-relaxed" data-i18n="res.proj2.text">Création d'un observatoire en temps réel des tendances, des singularités et des signaux faibles circulant dans les discours des domaines alimentaires et de la santé sur Twitter. Fouille de graphes d'interactions pour l'évaluation de la polarisation des communautés d'utilisateurs sans passer par une analyse sémantique de données textuelles de mauvaise qualité.</p>
+          <div class="mt-3 flex flex-wrap gap-2">
+            <button type="button" class="tag-chip" data-tag="socialnetworks" data-filter-for="projects">#SocialNetworks</button>
+            <button type="button" class="tag-chip" data-tag="polarisation" data-filter-for="projects">#Polarisation</button>
+            <button type="button" class="tag-chip" data-tag="graphs" data-filter-for="projects">#Graphs</button>
+            <button type="button" class="tag-chip" data-tag="datamining" data-filter-for="projects">#DataMining</button>
+            <button type="button" class="tag-chip" data-tag="humansciences" data-filter-for="projects">#HumanSciences</button>
+            <button type="button" class="tag-chip" data-tag="twitter" data-filter-for="projects">#Twitter</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Collaborations hors projets -->
+    <section class="mt-14" aria-labelledby="proj-colab">
+      <h2 id="colab-title" class="reveal font-display text-2xl font-semibold text-ink dark:text-slate-100" data-i18n="res.colab.title">Autres collaborations</h2>
+      <div class="relative mt-5 grid gap-4 md:grid-cols-2" data-filter-grid="projects">
+        <article class="card reveal" data-tags="healthcare,ai,mobile,sedentarity,federatedlearning,knowledgegraph,gamification">
+          <p class="eyebrow">LIS · ISM</p>
+          <h3 class="mt-2 font-display text-lg font-semibold text-ink dark:text-slate-100" data-i18n="res.colab1.title">WelfarApp</h3>
+          <p class="mt-2 text-sm leading-relaxed" data-i18n="res.colab1.text">Création d'une application mobile pour lutter contre la sédentarité chez les adolescents en combinant le suivi de la santé, l'intelligence artificielle et la ludification. Collecte et analyse de données sensibles multimodales. Apprentissage fédéré à partir de graphes de connaissances personnels. Collaboration avec l'Institut des Sciences du Mouvement (ISM) de Marseille.</p>
+          <div class="mt-3 flex flex-wrap gap-2">
+            <button type="button" class="tag-chip" data-tag="healthcare" data-filter-for="projects">#Healthcare</button>
+            <button type="button" class="tag-chip" data-tag="sedentarity" data-filter-for="projects">#Sedentarity</button>
+            <button type="button" class="tag-chip" data-tag="mobile" data-filter-for="projects">#MobileApp</button>
+            <button type="button" class="tag-chip" data-tag="ai" data-filter-for="projects">#AI</button>
+            <button type="button" class="tag-chip" data-tag="federatedlearning" data-filter-for="projects">#FederatedLearning</button>
+            <button type="button" class="tag-chip" data-tag="knowledgegraph" data-filter-for="projects">#KnowledgeGraph</button>
+            <button type="button" class="tag-chip" data-tag="gamification" data-filter-for="projects">#Gamification</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Encadrement -->
+    <section class="mt-14" aria-labelledby="sup-title">
+      <h2 id="sup-title" class="reveal font-display text-2xl font-semibold text-ink dark:text-slate-100" data-i18n="res.superv.title">Encadrement</h2>
+      <div class="mt-5 grid gap-4 md:grid-cols-2">
+        <article class="card reveal">
+          <p class="eyebrow" data-i18n="res.superv.phd.now.title">Thèses de doctorat en cours</p>
+          <p class="mt-2 text-sm leading-relaxed" data-i18n="res.superv.phd.now.text">Aucune thèse en cours.</p>
+        </article>
+        <article class="card reveal">
+          <p class="eyebrow" data-i18n="res.superv.phd.past.title">Thèses de doctorat terminée</p>
+          <p class="mt-2 text-sm leading-relaxed" data-i18n="res.superv.phd.past.text">Aucune thèse terminée.</p>
+        </article>
+        <article class="card reveal">
+          <p class="eyebrow" data-i18n="res.superv.postdoc.now.title">Post-doctorats en cours</p>
+          <p class="mt-2 text-sm leading-relaxed" data-i18n-html="res.superv.postdoc.now.text">Aucun post-doctorat en cours.</p>
+        </article>
+        <article class="card reveal">
+          <p class="eyebrow" data-i18n="res.superv.postdoc.past.title">Post-doctorats terminés</p>
+          <p class="mt-2 text-sm leading-relaxed" data-i18n-html="res.superv.postdoc.past.text">Aucun post-doctorat terminé.</p>
+        </article>
+        <article class="card reveal">
+          <p class="eyebrow" data-i18n="res.superv.interns.now.title">Stages de recherche en cours</p>
+          <p class="mt-2 text-sm leading-relaxed" data-i18n-html="res.superv.interns.now.text">Aucun stage en cours.</p>
+        </article>
+        <article class="card reveal">
+          <p class="eyebrow" data-i18n="res.superv.interns.past.title">Stages de recherche encadrés</p>
+          <p class="mt-2 text-sm leading-relaxed" data-i18n-html="res.superv.interns.past.text">Aucun stage terminé.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="mt-14" aria-labelledby="phd-title">
+      <h2 id="phd-title" class="reveal font-display text-2xl font-semibold text-ink dark:text-slate-100" data-i18n="res.phd.title1">Thèse de doctorat en informatique</h2>
+      <div class="relative mt-5 grid gap-4" data-filter-grid="projects">
+        <article class="card reveal" data-tags="datalakes,typetheory,categorytheory,multimodel,schemaonread,pipelines,bigdata,pridwen,scala,spark,shapeless,dataframes,workflows">
+          <!-- <p class="eyebrow" data-i18n="res.phd.title2">Thèse</p> -->
+          <h3 class="mt-2 flex items-center gap-2 font-display text-lg font-semibold text-ink dark:text-slate-100" data-i18n-html="res.phd.title3">Un cadre robuste pour la prévention d'erreurs dans les workflows d'analyse des data lakes</h3>
+          <p class="mt-2 text-sm leading-relaxed" data-i18n-html="res.phd.abstract"><b>Résumé :</b> Les data lakes, ou lacs de données, sont des plateformes flexibles proposant diverses fonctionnalités liées à la gestion et à l'analyse des données massives. Les utilisateurs des data lakes exploitent ces fonctionnalités au moyen d'opérateurs variés dont l'implémentation peut prendre appui sur divers cadres théoriques et exploiter différents modèles de données, paradigmes de programmation ou de traitement, et environnements d'exécution. Ces opérateurs sont composés pour mettre en oeuvre des analyses complexes sous forme de workflows qualifiés d'hybrides en raison de la variété des opérateurs utilisés. Dans les data lakes, les workflows d'analyse sont particulièrement sujets à différentes formes d'erreurs techniques, principalement provoquées par des compositions d'opérateurs incompatibles et par des transformations de données erronées ; et d'erreurs de conception, si certaines fonctionnalités nécessaires à l'exécution du workflow ne sont pas fournies par le data lake ou s'il ne satisfait pas les dépendances existantes entre les fonctionnalités. Dans cette thèse, nous concevons un cadre robuste pour la prévention d'erreurs dans les workflows d'analyse des data lakes en adoptant une approche centrée sur les opérateurs et leur composition plutôt que sur les données et leur structure. Nous exploitons la sûreté du typage et la théorie des types pour contrôler dès la compilation l'absence d'erreurs dans des compositions d'opérateurs à l'aide de types représentant au niveau schéma et au niveau modèle les données en entrée et en sortie des opérateurs. Nous exploitons la théorie des catégories pour définir les fonctionnalités fournies par les data lakes comme des instanciations de templates permettant de contrôler que des liaisons entre fonctionnalités satisfont les dépendances existantes. Nous regroupons les implémentations de nos constructions formelles basées sur la théorie des types au sein d'une bibliothèque Scala que nous utilisons pour valider et évaluer notre proposition et son implémentation sur un cas d'exemple lié à l'analyse des réseaux sociaux numériques.<br><br><i>Thèse de doctorat en informatique menée au sein du laboratoire Laboratoire d'Informatique de Bourgogne (LIB) et soutenue le 14 novembre 2024 à l'Université de Bourgogne (Dijon, France).</i><br><br></p>
+          <div class="mt-3 flex flex-wrap items-center gap-2">
+            <button type="button" class="tag-chip" data-tag="datalakes" data-filter-for="projects">#DataLakes</button>
+            <button type="button" class="tag-chip" data-tag="pipelines" data-filter-for="projects">#Pipelines</button>
+            <button type="button" class="tag-chip" data-tag="workflows" data-filter-for="projects">#Workflows</button>
+            <button type="button" class="tag-chip" data-tag="schemaonread" data-filter-for="projects">#SchemaOnRead</button>
+            <button type="button" class="tag-chip" data-tag="multimodel" data-filter-for="projects">#MultiModel</button>
+            <button type="button" class="tag-chip" data-tag="bigdata" data-filter-for="projects">#BigData</button>
+            <button type="button" class="tag-chip" data-tag="typetheory" data-filter-for="projects">#TypeTheory</button>
+            <button type="button" class="tag-chip" data-tag="categorytheory" data-filter-for="projects">#CategoryTheory</button>
+            <button type="button" class="tag-chip" data-tag="scala" data-filter-for="projects">#Scala</button>
+            <button type="button" class="tag-chip" data-tag="spark" data-filter-for="projects">#Spark</button>
+            <button type="button" class="tag-chip" data-tag="dataframes" data-filter-for="projects">#DataFrames</button>
+            <button type="button" class="tag-chip" data-tag="shapeless" data-filter-for="projects">#Shapeless</button>
+            <button type="button" class="tag-chip" data-tag="pridwen" data-filter-for="projects">#Pridwen</button>
+          </div><br>
+          <a href="https://theses.fr/2024UBFCK040" target="_blank" rel="noopener" class="bib-btn ml-auto"><span>Dépôt Thèses.fr</span> ↗</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="mt-14" aria-labelledby="prod-title">
+      <h2 id="prod-title" class="reveal font-display text-2xl font-semibold text-ink dark:text-slate-100" data-i18n="res.prod.title">Productions libres</h2>
+      <div class="relative mt-5 grid gap-4 md:grid-cols-2" data-filter-grid="projects">
+        <!-- Logiciels open source (même grille filtrable) -->
+        <article class="card reveal" data-tags="pridwen,scala,spark,shapeless,dataframes,pipeline,schemaonread,mutimodel,datalakes,lakehouses,typetheory,opensource">
+          <p class="eyebrow" data-i18n="res.soft.title">Open source &amp; logiciels</p>
+          <h3 class="mt-2 flex items-center gap-2 font-display text-lg font-semibold text-ink dark:text-slate-100">Pridwen
+            <span class="rounded bg-lagoon/10 px-1.5 py-0.5 font-mono text-[0.65rem] text-lagoon dark:bg-lagoonl/10 dark:text-lagoonl">Scala</span>
+            <a href="https://github.com/alexisguyot/pridwen" target="_blank" rel="noopener" class="bib-btn ml-auto"><span data-i18n="common.github">Dépôt GitHub</span> ↗</a></h3>
+          <p class="mt-2 text-sm leading-relaxed" data-i18n="res.soft1.text"></p>
+          <div class="mt-3 flex flex-wrap items-center gap-2">
+            <button type="button" class="tag-chip" data-tag="scala" data-filter-for="projects">#Scala</button>
+            <button type="button" class="tag-chip" data-tag="spark" data-filter-for="projects">#Spark</button>
+            <button type="button" class="tag-chip" data-tag="shapeless" data-filter-for="projects">#Shapeless</button>
+            <button type="button" class="tag-chip" data-tag="dataframes" data-filter-for="projects">#DataFrames</button>
+            <button type="button" class="tag-chip" data-tag="pipeline" data-filter-for="projects">#Pipelines</button>
+            <button type="button" class="tag-chip" data-tag="schemaonread" data-filter-for="projects">#SchemaOnRead</button>
+            <button type="button" class="tag-chip" data-tag="mutimodel" data-filter-for="projects">#MultiModel</button>
+            <button type="button" class="tag-chip" data-tag="datalakes" data-filter-for="projects">#DataLakes</button>
+            <button type="button" class="tag-chip" data-tag="lakehouses" data-filter-for="projects">#Lakehouses</button>
+            <button type="button" class="tag-chip" data-tag="typetheory" data-filter-for="projects">#TypeTheory</button>
+          </div>
+        </article>
+        <article class="card reveal" data-tags="eris,r,socialnetworks,polarisation,graphs,datamining,opensource">
+          <p class="eyebrow" data-i18n="res.soft.title">Open source &amp; logiciels</p>
+          <h3 class="mt-2 flex items-center gap-2 font-display text-lg font-semibold text-ink dark:text-slate-100">ERIS
+            <span class="rounded bg-lagoon/10 px-1.5 py-0.5 font-mono text-[0.65rem] text-lagoon dark:bg-lagoonl/10 dark:text-lagoonl">R</span>
+            <a href="https://github.com/alexisguyot/eris" target="_blank" rel="noopener" class="bib-btn ml-auto"><span data-i18n="common.github">Dépôt GitHub</span> ↗</a></h3>
+          <p class="mt-2 text-sm leading-relaxed" data-i18n="res.soft2.text">Package R d'évaluation de la polarisation…</p>
+          <div class="mt-3 flex flex-wrap items-center gap-2">
+            <button type="button" class="tag-chip" data-tag="r" data-filter-for="projects">#R</button>
+            <button type="button" class="tag-chip" data-tag="socialnetworks" data-filter-for="projects">#SocialNetworks</button>
+            <button type="button" class="tag-chip" data-tag="polarisation" data-filter-for="projects">#Polarisation</button>
+            <button type="button" class="tag-chip" data-tag="graphs" data-filter-for="projects">#Graphs</button>
+            <button type="button" class="tag-chip" data-tag="datamining" data-filter-for="projects">#DataMining</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Publications -->
+    <section class="mt-14" aria-labelledby="pub-title">
+      <h2 id="pub-title" class="reveal font-display text-2xl font-semibold text-ink dark:text-slate-100" data-i18n="res.pubs.title">Publications</h2>
+      <p class="reveal mt-1 text-sm text-slate-500 dark:text-slate-400" data-i18n="res.pubs.sub">Liste générée automatiquement depuis publications.bib…</p>
+
+      <div class="reveal mt-5 flex flex-wrap items-center gap-3">
+        <label class="flex items-center gap-2 text-sm">
+          <span class="font-mono text-xs text-slate-500 dark:text-slate-400" data-i18n="res.pubs.year">Année</span>
+          <select id="pub-filter-year" class="filter-select"></select>
+        </label>
+        <label class="flex items-center gap-2 text-sm">
+          <span class="font-mono text-xs text-slate-500 dark:text-slate-400" data-i18n="res.pubs.type">Type</span>
+          <select id="pub-filter-type" class="filter-select"></select>
+        </label>
+      </div>
+
+      <p id="pub-notice" class="mt-3 hidden rounded-lg border border-amber-300 bg-amber-50 px-3 py-2 text-xs text-amber-800 dark:border-amber-700 dark:bg-amber-950 dark:text-amber-200"></p>
+      <div id="pub-list" class="mt-5">
+        <p class="italic text-slate-500 dark:text-slate-400" data-i18n="res.pubs.loading">Chargement de publications.bib…</p>
+      </div>
+    </section>
+  </main>
+
+<!-- ===================== FOOTER ===================== -->
+  <footer class="border-t border-slate-200 py-8 dark:border-slate-800">
+    <div class="mx-auto flex max-w-5xl flex-col items-center gap-1 px-4 text-center text-xs text-slate-400 dark:text-slate-500">
+      <p>© 2026 Alexis Guyot · <span data-i18n="footer.rights">Site statique, open source et sans traceurs.</span></p>
+      <p data-i18n="footer.built">Construit en HTML, TailwindCSS et JavaScript natif.</p>
+    </div>
+  </footer>
+
+    <script src="assets/i18n.js"></script>
+  <script src="assets/app.js"></script>
+  <script src="assets/bibtex.js"></script>
+</body>
+</html>

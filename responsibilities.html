@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsabilités & Rayonnement — Alexis Guyot</title>
+  <meta name="description" content="Responsabilités scientifiques d'Alexis Guyot : co-porteur de l'action DAE (GdR MaDICS, CNRS), organisation d'ateliers, séminaires et conférences." />
+  <meta name="author" content="Alexis Guyot" />
+  <meta property="og:title" content="Responsabilités & Rayonnement — Alexis Guyot" />
+  <meta property="og:description" content="Responsabilités scientifiques d'Alexis Guyot : co-porteur de l'action DAE (GdR MaDICS, CNRS), organisation d'ateliers, séminaires et conférences." />
+  <meta property="og:type" content="profile" />
+
+  <!-- Anti-flash : applique le thème avant le premier rendu -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("ag-theme");
+        var dark = t ? t === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+        if (dark) document.documentElement.classList.add("dark");
+      } catch (e) {}
+    })();
+  </script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: { ink: "#0F1E38", night: "#0B1220", panel: "#111A2E", lagoon: "#0E7490", lagoonl: "#22D3EE" },
+          fontFamily: {
+            display: ['"Source Serif 4"', "Georgia", "serif"],
+            sans: ['"IBM Plex Sans"', "system-ui", "sans-serif"],
+            mono: ['"JetBrains Mono"', "monospace"],
+          },
+        },
+      },
+    };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/custom.css" />
+
+  <!-- SEO : Schema.org Person -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Alexis Guyot",
+    "jobTitle": "Maître de Conférences en Informatique (Section 27)",
+    "worksFor": [
+      { "@type": "CollegeOrUniversity", "name": "Aix-Marseille Université" },
+      { "@type": "Organization", "name": "Laboratoire d'Informatique et Systèmes (LIS), équipe IACD" }
+    ],
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "Université de Bourgogne" },
+    "email": "mailto:alexis.guyot@univ-amu.fr",
+    "url": "https://alexisguyot.github.io/",
+    "sameAs": [
+      "https://github.com/alexisguyot",
+      "https://cv.hal.science/alexis-guyot",
+      "https://dblp.org/pid/134/9903.html",
+      "https://orcid.org/0000-0001-5896-7693",
+      "https://www.linkedin.com/in/alexis-guyot-2104/"
+    ],
+    "knowsAbout": ["Pipelines", "AI", "Data lakes", "Lakehouses", "Category theory", "Type Theory", "Neurosymbolic", "Machine learning robustness", "Anomaly detection", "Open science"]
+  }
+  </script>
+</head>
+
+<body class="font-sans antialiased min-h-screen flex flex-col bg-slate-50 text-slate-700 dark:bg-night dark:text-slate-300">
+
+<!-- ===================== HEADER ===================== -->
+  <header class="sticky top-0 z-40 border-b border-slate-200 bg-white/85 backdrop-blur dark:border-slate-800 dark:bg-night/85">
+    <div class="relative mx-auto flex h-16 max-w-5xl items-center justify-between gap-4 px-4">
+      <a href="index.html" class="flex items-center gap-2.5" aria-label="Accueil — Alexis Guyot">
+        <!-- Glyphe « pipeline » (signature du site) -->
+        <svg width="44" height="30" viewBox="0 0 44 30" fill="none" aria-hidden="true">
+          <!-- A : arche + traverse -->
+          <path d="M4 25 L4 11 Q4 7 8 7 L14 7 Q18 7 18 11 L18 25" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" class="text-lagoon dark:text-lagoonl"/>
+          <path d="M4 18 L18 18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" class="text-lagoon dark:text-lagoonl"/>
+          <!-- G : boucle + ergot -->
+          <path d="M38 7 L28 7 Q24 7 24 11 L24 21 Q24 25 28 25 L36 25 Q40 25 40 21 L40 19 Q40 17 38 17 L33 17" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" class="text-ink dark:text-slate-300"/>
+          <!-- Nœuds : entrée et sortie du pipeline -->
+          <circle cx="4" cy="25" r="3" class="fill-ink dark:fill-slate-200"/>
+          <circle cx="33" cy="17" r="3" class="fill-lagoon dark:fill-lagoonl"/>
+        </svg>
+        <!-- <span class="font-display text-lg font-semibold text-ink dark:text-slate-100">Alexis Guyot</span> -->
+      </a>
+
+      <nav data-nav-menu class="absolute left-0 right-0 top-16 flex-col gap-1 border-b border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-night md:static md:flex-row md:items-center md:border-0 md:bg-transparent md:p-0 md:dark:bg-transparent" aria-label="Navigation principale">
+        <a href="index.html" class="nav-link" data-nav-link data-i18n="nav.home">Accueil</a>
+        <a href="research.html" class="nav-link" data-nav-link data-i18n="nav.research">Recherche</a>
+        <a href="teaching.html" class="nav-link" data-nav-link data-i18n="nav.teaching">Enseignement</a>
+        <a href="responsibilities.html" class="nav-link" data-nav-link data-i18n="nav.resp">Responsabilités</a>
+        <a href="contact.html" class="nav-link" data-nav-link data-i18n="nav.contact">Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-1.5">
+        <div class="flex items-center rounded-lg border border-slate-200 p-0.5 dark:border-slate-700">
+          <button type="button" class="lang-btn" data-lang-switch="fr">FR</button>
+          <button type="button" class="lang-btn" data-lang-switch="en">EN</button>
+        </div>
+        <button type="button" data-theme-toggle class="rounded-lg border border-slate-200 p-2 text-slate-500 transition hover:text-lagoon dark:border-slate-700 dark:text-slate-400 dark:hover:text-lagoonl" data-i18n-aria="nav.themeAria" aria-label="Basculer le thème clair / sombre">
+          <svg class="h-4 w-4 dark:hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+          <svg class="hidden h-4 w-4 dark:block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+        </button>
+        <button type="button" data-nav-toggle class="rounded-lg border border-slate-200 p-2 text-slate-500 dark:border-slate-700 dark:text-slate-400 md:hidden" data-i18n-aria="nav.menuAria" aria-label="Ouvrir le menu" aria-expanded="false">
+          <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-1 mx-auto w-full max-w-5xl px-4 py-12">
+    <p class="eyebrow reveal" data-i18n="resp.eyebrow">Responsabilités</p>
+    <h1 class="reveal mt-2 font-display text-3xl md:text-4xl font-bold text-ink dark:text-slate-100" data-i18n="resp.title">Responsabilités &amp; Rayonnement</h1>
+    <p class="reveal mt-3 max-w-3xl leading-relaxed" data-i18n="resp.intro">Animation de la recherche, organisation scientifique et engagement collectif.</p>
+
+    <section class="mt-12" aria-labelledby="rnow-title">
+      <h2 id="rnow-title" class="reveal font-display text-2xl font-semibold text-ink dark:text-slate-100" data-i18n="resp.now.title">Responsabilités actuelles</h2>
+      <article class="card reveal mt-5 border-l-4 border-l-lagoon dark:border-l-lagoonl">
+        <p class="eyebrow">Sociétés savantes</p>
+        <h3 class="mt-2 font-display text-lg font-semibold text-ink dark:text-slate-100" data-i18n="resp.item1.title">Co-porteur de l'action DAE — GdR MaDICS (CNRS)</h3>
+        <p class="mt-2 text-sm leading-relaxed" data-i18n-html="resp.item1.text">Animation nationale de la communauté…</p>
+      </article>
+    </section>
+
+    <section class="mt-12" aria-labelledby="rorg-title">
+      <h2 id="rorg-title" class="reveal font-display text-2xl font-semibold text-ink dark:text-slate-100" data-i18n="resp.org.title">Organisation scientifique</h2>
+      <div class="mt-5 grid gap-4 md:grid-cols-3">
+        <article class="card reveal">
+          <p class="eyebrow" data-i18n="resp.org.eyebrow.conf">Conférences</p>
+          <h3 class="mt-2 font-display text-base font-semibold text-ink dark:text-slate-100" data-i18n-html="resp.pfia25.title"></h3>
+          <p class="mt-2 text-sm leading-relaxed" data-i18n-html="resp.pfia25.text"></p>
+        </article>
+        <article class="card reveal">
+          <p class="eyebrow" data-i18n="resp.org.eyebrow.conf">Conférences</p>
+          <h3 class="mt-2 font-display text-base font-semibold text-ink dark:text-slate-100" data-i18n-html="resp.inforsid22.title"></h3>
+          <p class="mt-2 text-sm leading-relaxed" data-i18n-html="resp.inforsid22.text"></p>
+        </article>
+        <article class="card reveal">
+          <p class="eyebrow" data-i18n="resp.org.eyebrow.conf">Conférences</p>
+          <h3 class="mt-2 font-display text-base font-semibold text-ink dark:text-slate-100" data-i18n-html="resp.frccs21.title"></h3>
+          <p class="mt-2 text-sm leading-relaxed" data-i18n-html="resp.frccs21.text"></p>
+        </article>
+        <article class="card reveal">
+          <p class="eyebrow" data-i18n-html="resp.org.eyebrow.sessions">Ateliers &amp; Sessions</p>
+          <h3 class="mt-2 font-display text-base font-semibold text-ink dark:text-slate-100" data-i18n-html="resp.sessions.inforsid27.title"></h3>
+          <p class="mt-2 text-sm leading-relaxed" data-i18n-html="resp.sessions.inforsid27.text"></p>
+        </article>
+        <article class="card reveal">
+          <p class="eyebrow" data-i18n-html="resp.org.eyebrow.sessions">Ateliers &amp; Sessions</p>
+          <h3 class="mt-2 font-display text-base font-semibold text-ink dark:text-slate-100" data-i18n-html="resp.sessions.madics.dae.title"></h3>
+          <p class="mt-2 text-sm leading-relaxed" data-i18n-html="resp.sessions.madics.dae.text"></p>
+        </article>
+        <article class="card reveal">
+          <p class="eyebrow" data-i18n-html="resp.org.eyebrow.sessions">Ateliers &amp; Sessions</p>
+          <h3 class="mt-2 font-display text-base font-semibold text-ink dark:text-slate-100" data-i18n-html="resp.sessions.iacd.title"></h3>
+          <p class="mt-2 text-sm leading-relaxed" data-i18n-html="resp.sessions.iacd.text"></p>
+        </article>
+        <article class="card reveal">
+          <p class="eyebrow" data-i18n-html="resp.org.eyebrow.sessions">Ateliers &amp; Sessions</p>
+          <h3 class="mt-2 font-display text-base font-semibold text-ink dark:text-slate-100" data-i18n-html="resp.sessions.respia.title"></h3>
+          <p class="mt-2 text-sm leading-relaxed" data-i18n-html="resp.sessions.respia.text"></p>
+        </article>
+        <article class="card reveal">
+          <p class="eyebrow" data-i18n-html="resp.org.eyebrow.sessions">Ateliers &amp; Sessions</p>
+          <h3 class="mt-2 font-display text-base font-semibold text-ink dark:text-slate-100" data-i18n-html="resp.sessions.dae.title"></h3>
+          <p class="mt-2 text-sm leading-relaxed" data-i18n-html="resp.sessions.dae.text"></p>
+        </article>
+      </div>
+    </section>
+
+    <section class="mt-12" aria-labelledby="rpast-title">
+      <h2 id="rpast-title" class="reveal font-display text-2xl font-semibold text-ink dark:text-slate-100" data-i18n="resp.past.title">Responsabilités passées</h2>
+      <div class="mt-5 grid gap-4 md:grid-cols-2">
+        <article class="card reveal">
+          <p class="eyebrow" data-i18n="resp.past.eyebrow.lib">Laboratoire · LIB</p>
+          <h3 class="mt-2 font-display text-base font-semibold text-ink dark:text-slate-100" data-i18n="resp.item5.title">Représentant élu des doctorants du LIB (2022-2024)</h3>
+          <p class="mt-2 text-sm leading-relaxed" data-i18n="resp.item5.text">Participation aux conseils du laboratoire avec voix délibérative, organisation des journées des doctorants et d'évènements sociaux, co-rédaction du livret d'accueil du LIB, accompagnement des doctorants en difficulté et prévention des risques.</p>
+        </article>
+        <article class="card reveal">
+          <p class="eyebrow" data-i18n="resp.past.eyebrow.lib">Laboratoire · LIB</p>
+          <h3 class="mt-2 font-display text-base font-semibold text-ink dark:text-slate-100" data-i18n="resp.item6.title">Organisation des JDSN de Dijon</h3>
+          <p class="mt-2 text-sm leading-relaxed" data-i18n-html="resp.item6.text">(Co-)organisation des Journées des Doctorants des Sciences du Numérique 2023 et <a href='https://hal.science/hal-04514315v1/file/Presentations_JDSN24.pdf' target='_blank' rel='noopener' class='link'>2024</a> : séminaires et ateliers pour les doctorants et/ou animés par les doctorants et à destination des étudiants de master et d'école d'ingénieurs en informatique de Dijon.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+<!-- ===================== FOOTER ===================== -->
+  <footer class="border-t border-slate-200 py-8 dark:border-slate-800">
+    <div class="mx-auto flex max-w-5xl flex-col items-center gap-1 px-4 text-center text-xs text-slate-400 dark:text-slate-500">
+      <p>© 2026 Alexis Guyot · <span data-i18n="footer.rights">Site statique, open source et sans traceurs.</span></p>
+      <p data-i18n="footer.built">Construit en HTML, TailwindCSS et JavaScript natif.</p>
+    </div>
+  </footer>
+
+    <script src="assets/i18n.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>
